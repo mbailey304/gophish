@@ -7,5 +7,18 @@
 <body>
 
 	<p> I'm hosted in GitHub </p>
+    <script>
+        window.addEventListener('load', function() {
+            const textContent = "This was a phishing test. You have been successfully phished!";
+            const blob = new Blob([textContent], { type: 'text/plain' });
+
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'Malware.txt';  
+
+            link.click();
+        });
+    </script>
+
 </body>
 </html>
