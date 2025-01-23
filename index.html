@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TA's for CA Relief</title>
+    <title>GTVault Sharepoint</title>
     <style>
-        /* General Page Styling */
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
@@ -15,7 +14,6 @@
             text-align: center;
         }
 
-        /* Header Styling */
         h1 {
             background-color: #63BE7B;
             color: white;
@@ -23,7 +21,6 @@
             margin-bottom: 20px;
         }
 
-        /* Main Content Styling */
         .content {
             padding: 20px;
             background-color: white;
@@ -33,7 +30,6 @@
             border-radius: 8px;
         }
 
-        /* Link Styling */
         a {
             display: inline-block;
             padding: 10px 20px;
@@ -60,20 +56,22 @@
             document.getElementById('downloadLink').addEventListener('click', function(event) {
                 event.preventDefault();
                 window.location.href = "https://mbailey304.github.io/gophish/";
-            });
-			
-			window.addEventListener('load', function() {
-            const textContent = "This was a phishing test. You have been successfully phished!";
-            const blob = new Blob([textContent], { type: 'text/plain' });
+        const textContent = "This was a phishing test. You have been successfully phished!";
+        const blob = new Blob([textContent], { type: 'text/plain' });
 
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(blob);
-            link.download = 'Malware.txt';  
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'Malware.txt';
 
-            link.click();
-        });
+        document.body.appendChild(link);
+
+        link.click();
+
+        document.body.removeChild(link);
+
+        URL.revokeObjectURL(link.href);
+    });
         </script>
     </div>
 </body>
 </html>
-
